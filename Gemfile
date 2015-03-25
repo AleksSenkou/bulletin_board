@@ -27,7 +27,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'jquery-rails'
 gem 'bootstrap-sass', '~> 3.3.3'
-gem 'devise-bootstrap-views'
+# gem 'devise-bootstrap-views'
 # end
 
 group :test do
