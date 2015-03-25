@@ -5,30 +5,30 @@ gem 'sqlite3'
 gem 'app_config'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
-group :assets do
-  gem 'coffee-rails', '~> 4.1.0'
-  gem 'sass-rails', '~> 5.0'
-  gem 'uglifier', '>= 1.3.0'
-end
+# group :assets do
+gem 'coffee-rails', '~> 4.1.0'
+gem 'sass-rails', '~> 5.0'
+gem 'uglifier', '>= 1.3.0'
+# end
 
-group :auth do
-  gem 'devise'
-  gem 'therubyracer'
-  gem 'omniauth'
-  gem 'omniauth-vkontakte'
-  gem 'omniauth-facebook'
-  gem 'omniauth-twitter'
-  gem 'omniauth-google'
-end
+# group :auth do
+gem 'devise'
+gem 'therubyracer'
+gem 'omniauth'
+gem 'omniauth-vkontakte'
+gem 'omniauth-facebook'
+gem 'omniauth-twitter'
+gem 'omniauth-google'
+# end
 
-group :features do
-  gem 'slim-rails'
-  gem 'turbolinks'
-  gem 'jbuilder', '~> 2.0'
-  gem 'jquery-rails'
-  gem 'bootstrap-sass', '~> 3.3.3'
-  gem 'devise-bootstrap-views'
-end
+# group :features do
+gem 'slim-rails'
+gem 'turbolinks'
+gem 'jbuilder', '~> 2.0'
+gem 'jquery-rails'
+gem 'bootstrap-sass', '~> 3.3.3'
+gem 'devise-bootstrap-views'
+# end
 
 group :test do
   gem 'capybara'
