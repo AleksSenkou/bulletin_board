@@ -1,13 +1,14 @@
 html
   head
     title Bulletin Board
-    = stylesheet_link_tag 'application', media: 'all',                                  'data-turbolinks-track' =>true
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
 
   body
     = render 'layouts/header'
 
-    = yield
+    .container#yield_block
+      = yield
 
     = render 'layouts/footer'
