@@ -1,0 +1,7 @@
+1) omniauth
+2) config security
+4) sign in/out views
+3) alerts:
+      messages form IN _errors (close)
+      alerts IN _messages AND messages.sass (change to bootstrap)
+      devise_helper
