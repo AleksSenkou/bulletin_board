@@ -1,11 +1,12 @@
 @import 'bootstrap'
 
-$font: Geneva 'Times New Roman' 110% Times serif
+@mixin nav_font
+  font: Geneva 'Times New Roman' 110% Times serif
 
-#logo, #navbar-ul
-  font: $font
+$hover_color: #fff
 
 #logo
+  @include nav_font
   float: left
   color: #D3D3D3
   font-size: 1.7em
@@ -14,9 +15,10 @@ $font: Geneva 'Times New Roman' 110% Times serif
   text-decoration: none
   margin: 0.5% 0 0 1.5%
   &:hover
-    color: #fff
+    color: $hover_color
 
 #navbar-ul
+  @include nav_font
   width: 25%
   float: right
   font-size: 1.4em
@@ -25,7 +27,7 @@ $font: Geneva 'Times New Roman' 110% Times serif
     color: rgb(210, 210, 210)
     text-decoration: none
     &:hover
-      color: #fff
+      color: $hover_color
   li
     margin-right: 8%
     display: inline
