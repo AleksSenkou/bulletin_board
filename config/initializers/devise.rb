@@ -112,7 +112,7 @@ Devise.setup do |config|
   # their account within 3 days after the mail was sent, but on the fourth day
   # their account can't be confirmed with the token any more.
   # Default is nil, meaning there is no restriction on how long a user can take
-  # before confirming their account.
+  # before their account.
   # config.confirm_within = 3.days
 
   # If true, requires any email changes to be confirmed (exactly the same way as
@@ -232,7 +232,10 @@ Devise.setup do |config|
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
-  # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
+  config.omniauth :facebook, 'APP_ID', 'APP_SECRET'
+  config.omniauth :vkontakte, 'APP_ID', 'APP_SECRET'
+  config.omniauth :twitter, 'APP_ID', 'APP_SECRET'
+  config.omniauth :google, 'APP_ID', 'APP_SECRET'
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or

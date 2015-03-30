@@ -1,10 +1,11 @@
 source 'https://rubygems.org'
+ruby '2.2.0'
 
 gem 'rails', '4.2.0'
-gem 'sqlite3'
-gem 'app_config'
-gem 'protected_attributes'
+gem 'pg' # for heroku
 gem 'sdoc', '~> 0.4.0', group: :doc
+gem 'protected_attributes'
+gem 'app_config'
 
 # group :assets do
 gem 'coffee-rails', '~> 4.1.0'
@@ -12,7 +13,7 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 # end
 
-# group :auth do
+# group :(o)auth do
 gem 'devise'
 gem 'therubyracer'
 gem 'omniauth'
@@ -23,6 +24,7 @@ gem 'omniauth-google'
 # end
 
 # group :features do
+gem 'rubocop'
 gem 'slim-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
@@ -43,4 +45,8 @@ group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'
   gem 'spring'
+end
+
+group :production do
+  gem 'rails_12factor'
 end
