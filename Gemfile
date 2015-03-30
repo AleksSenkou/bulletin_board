@@ -24,7 +24,6 @@ gem 'omniauth-google'
 # end
 
 # group :features do
-gem 'rubocop'
 gem 'slim-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
@@ -39,6 +38,7 @@ group :test do
 end
 
 group :development, :test do
+  gem 'rubocop'
   gem 'rspec-rails'
   gem 'rspec-its'
   gem 'guard-rspec'
