@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.0'
 gem 'sqlite3'
 gem 'app_config'
+gem 'protected_attributes'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 # group :assets do
@@ -27,7 +28,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'jquery-rails'
 gem 'bootstrap-sass', '~> 3.3.3'
-# gem 'devise-bootstrap-views'
+gem 'devise-bootstrap-views'
 # end
 
 group :test do

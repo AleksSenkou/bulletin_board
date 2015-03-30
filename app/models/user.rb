@@ -6,6 +6,6 @@ class User < ActiveRecord::Base
          :recoverable,
          :rememberable,
          :trackable,
-         :validatable
-         # :omniauthable
+         :validatable,
+         :omniauthable
 end
