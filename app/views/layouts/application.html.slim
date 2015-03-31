@@ -1,15 +1,16 @@
+doctype html
 html
   head
-    title Bulletin Board
-    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
-    = javascript_include_tag 'application', 'data-turbolinks-track' => true
-    = csrf_meta_tags
-
+    meta[name="viewport" content="width=device-width, initial-scale=1.0"]
+    title
+      = content_for?(:title) ? yield(:title) : 'Bulletin Board'
+    meta name="description" content="#{content_for?(:description) ? yield(:description) : 'Bulletin Board'}"
+    == stylesheet_link_tag "application", :media => 'all', 'data-turbolinks-track' => true
+    == javascript_include_tag 'application', 'data-turbolinks-track' => true
+    == csrf_meta_tags
   body
-    = render 'layouts/header'
-
-    .container#yield_block
-      = render 'layouts/messages'
-      = yield
-
-    = render 'layouts/footer'
+    header
+      == render 'layouts/navigation'
+    main[role="main"]
+      == render 'layouts/messages'
+      == yield
