@@ -1,6 +1,19 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
+  def new
+    # @user = User.new
+  end
+
+  def create
+    @user = User.create(user_params)
+    if @user.save
+      redirect_to root_url
+    else
+      render :new
+    end
+  end
+
   def index
   end
 
@@ -51,10 +64,7 @@ class UsersController < ApplicationController
     end
 
     def user_params
-      accessible = [:name, :email]
-      unless params[:user][:password].blank? do
-        accessible << [:password, :password_confiramtion]
-      end
-      params.require(:user).permit(accessible)
+      params.require(:user).permit(:name, :email, :password,
+                                   :password_confirmation)
     end
 end
