@@ -18,10 +18,10 @@ class User < ActiveRecord::Base
       email = auth.info.email if email_is_verified
       user = User.where(email: email).first if email
       if user.nil?
-        user = User.new (
-          name: auth.extra.raw_info.name,
-          email: email ? email : "#{TEMP_EMAIL_PREFIX}-#{auth.uid}-#{auth.provider}.com",
-          password: Devise.friendly_token[0, 20]
+        user = User.new(
+          :name => auth.extra.raw_info.name,
+          :email => email ? email : "#{TEMP_EMAIL_PREFIX}-#{auth.uid}-#{auth.provider}.com",
+          :password => Devise.friendly_token[0, 20]
         )
         user.skip_confirmation!
         user.save!
