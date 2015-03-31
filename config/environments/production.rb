@@ -5,6 +5,21 @@ Rails.application.configure do
   config.action_controller.perform_caching = true
   config.serve_static_files = ENV['RAILS_SERVE_STATIC_FILES'].present?
   config.assets.js_compressor = :uglifier
+
+  config.app_domain = 'damp-savannah-6630.herokuapp.com'
+  # config.action_mailer.delivery_method = :smtp
+  # config.action_mailer.perform_deliveries = true
+  # config.action_mailer.default_url_options = { host: config.app_domain }
+  # config.action_mailer.smtp_settings = {
+  #   address: 'smtp.gmail.com',
+  #   port: '587',
+  #   enable_starttls_auto: true,
+  #   user_name: 'someuser',
+  #   password: 'somepass',
+  #   authentication: :plain,
+  #   domain: 'somedomain.com'
+  # }
+
   config.assets.compile = false
   config.assets.digest = true
   config.log_level = :debug

@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 20150330111703) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  ################ Identities table ########################################
   create_table "identities", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "provider"
@@ -26,6 +27,7 @@ ActiveRecord::Schema.define(version: 20150330111703) do
 
   add_index "identities", ["user_id"], name: "index_identities_on_user_id", using: :btree
 
+  ################ Users table #############################################
   create_table "users", force: :cascade do |t|
     t.string   "name"
     t.string   "email",                  default: "", null: false

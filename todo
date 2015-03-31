@@ -1,7 +1,13 @@
 1) omniauth
+    sign in with:
+      facebook
+      twitter
+      vk
+    heroku
+
 2) config security
-4) sign in/out views
+4) sign in/out modal views
 3) alerts:
-      messages form IN _errors (close)
-      alerts IN _messages AND messages.sass (change to bootstrap)
-      devise_helper
+    messages form IN _errors (close)
+    alerts IN _messages AND messages.sass (change to bootstrap)
+    devise_helper
