@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 ruby '2.2.0'
 
 gem 'rails', '4.2.0'
-gem 'pg'
+gem 'pg' # use for heroku
 
 # group :(o)auth do
 gem 'devise'
@@ -25,7 +25,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'jquery-rails'
 gem 'bootstrap-sass', '~> 3.3.3'
-gem 'devise-bootstrap-views'
+# gem 'devise-bootstrap-views' # not stable gem
 # end
 
 group :development do
