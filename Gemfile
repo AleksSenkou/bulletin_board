@@ -1,36 +1,54 @@
 source 'https://rubygems.org'
 ruby '2.2.0'
+
 gem 'rails', '4.2.0'
+gem 'pg'
+
+# group :(o)auth do
+gem 'devise'
+gem 'therubyracer'
+gem 'omniauth'
+gem 'omniauth-vkontakte'
+gem 'omniauth-facebook'
+gem 'omniauth-twitter'
+# end
+
+# group :assets do
 gem 'sass-rails', '~> 5.0'
-gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
-gem 'jquery-rails'
+gem 'uglifier', '>= 1.3.0'
+# end
+
+# group :features do
+gem 'slim-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
-group :development, :test do
-  gem 'byebug'
-  gem 'web-console', '~> 2.0'
-  gem 'spring'
-end
-gem 'bootstrap-sass'
-gem 'pg'
-gem 'slim-rails'
+gem 'jquery-rails'
+gem 'bootstrap-sass', '~> 3.3.3'
+gem 'devise-bootstrap-views'
+# end
+
 group :development do
   gem 'guard-bundler'
   gem 'guard-rails'
   gem 'guard-rspec'
   gem 'rails_layout'
-  gem 'rb-fchange', :require=>false
-  gem 'rb-fsevent', :require=>false
-  gem 'rb-inotify', :require=>false
+  gem 'rb-fchange', :require => false
+  gem 'rb-fsevent', :require => false
+  gem 'rb-inotify', :require => false
   gem 'spring-commands-rspec'
 end
+
 group :development, :test do
+  gem 'byebug'
+  gem 'web-console', '~> 2.0'
+  gem 'spring'
   gem 'factory_girl_rails'
   gem 'faker'
   gem 'rspec-rails'
   gem 'rubocop'
 end
+
 group :test do
   gem 'capybara'
   gem 'database_cleaner'
