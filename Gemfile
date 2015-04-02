@@ -3,6 +3,7 @@ ruby '2.2.0'
 
 gem 'rails', '4.2.0'
 gem 'pg' # use for heroku
+gem 'app_config'
 
 # group :(o)auth do
 gem 'devise'

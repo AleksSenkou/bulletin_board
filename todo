@@ -1,0 +1,9 @@
+2) config security
+4) sign in/out modal views
+3) alerts:
+    messages form IN _errors (close)
+    alerts IN _messages AND messages.sass (change to bootstrap)
+    devise_helper
+4) user photo
+5) user update info
+6) tests!!
