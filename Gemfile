@@ -8,7 +8,6 @@ gem 'pg' # use for heroku
 gem 'devise'
 gem 'therubyracer'
 gem 'omniauth'
-gem 'omniauth-vkontakte'
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
 # end

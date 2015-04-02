@@ -189,8 +189,6 @@ Devise.setup do |config|
                              '2448bedf67cac073332ce5403cfebe09'
   config.omniauth :twitter, '9zf9nBmQ0mwLsk8YnufCMjgI1',
                            '0os0GfItXHMWptTBEYQfQkmJTsXIkzepj8tlLd1nsftctmL1mD'
-  config.omniauth :vkontakte, '4853623',
-                              'OyZnach41uUuZAms8EZo'
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
