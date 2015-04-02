@@ -1,21 +1,10 @@
-- check = -> (*names){ names.each { |name| return false if controller_name == name } }
-
-- if check.call('sessions', 'passwords')
-  = link_to t(".sign_in", :default => "Login"), new_session_path(resource_name)
-  br
-- if devise_mapping.registerable? && check.call('registrations', 'passwords')
-  = link_to t(".sign_up", :default => "Sign up"), new_registration_path(resource_name)
-  br
-- if devise_mapping.recoverable? && check.call('passwords', 'registrations')
-  = link_to t(".forgot_your_password", :default => "Forgot your password?"), new_password_path(resource_name)
-  br
-- if devise_mapping.confirmable? && check.call('confirmations')
-  = link_to t('.didn_t_receive_confirmation_instructions', :default => "Didn't receive confirmation instructions?"), new_confirmation_path(resource_name)
-  br
-- if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && check.call('unlocks')
-  = link_to t('.didn_t_receive_unlock_instructions', :default => "Didn't receive unlock instructions?"), new_unlock_path(resource_name)
-  br
-- if devise_mapping.omniauthable?
-  - resource_class.omniauth_providers.each do |provider|
-    = link_to t('.sign_in_with_provider', :provider => provider.to_s.titleize, :default => "Login with #{provider.to_s.titleize}"), omniauth_authorize_path(resource_name, provider)
-    br
+- if controller_name == 'registrations'
+  = link_to "Sign in", new_session_path(resource_name)
+- if controller_name == 'sessions'
+  = link_to "Sign up", new_registration_path(resource_name)
+|  or login with:
+br
+.icons
+  - ['facebook', 'twitter'].each do |provider|
+    = link_to image_tag("#{provider}.jpg"),
+        omniauth_authorize_path(resource_name, provider)

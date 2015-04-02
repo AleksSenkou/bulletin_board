@@ -1,0 +1,43 @@
+@import "bootstrap-sprockets"
+@import "bootstrap"
+
+@mixin delay($speed)
+  transition-duration: $speed
+  -moz-transition-duration: $speed
+  -webkit-transition-duration: $speed
+  -o-transition-duration: $speed
+
+.form-panel
+  @extend .col-sm-6
+  margin: 0 0 0 25.5%
+
+.button-users-profile
+  @extend .btn
+  @extend .btn-primary
+  @extend .col-sm-3
+  margin: 0 0 0 38%
+
+.icons
+  margin: 0.5% 0 0 4%
+  img
+    width: 40px
+    height: 40px
+    border-radius: 50%
+    opacity: 0.7
+    @include delay(.4s)
+    &:hover
+      @include delay(.6s)
+      opacity: 1
+
+#btn-delete-account
+  @extend .btn
+  @extend .btn-danger
+
+#btn-cancel-edit
+  @extend .btn
+  @extend .btn-warning
+  margin: 4% 0 0 0
+  float: right
+
+#edit-profile-bottom-part
+  margin: 15% 0 0 0

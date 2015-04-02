@@ -3,7 +3,7 @@ class UsersController < ApplicationController
                                   :destroy, :finish_signup]
 
   def show
-    # authorize! :read, @user
+
   end
 
   def edit

@@ -25,6 +25,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'jquery-rails'
 gem 'bootstrap-sass', '~> 3.3.3'
+gem 'simple_form'
 # gem 'devise-bootstrap-views' # not stable gem
 # end
 
@@ -33,9 +34,9 @@ group :development do
   gem 'guard-rails'
   gem 'guard-rspec'
   gem 'rails_layout'
-  gem 'rb-fchange', :require => false
-  gem 'rb-fsevent', :require => false
-  gem 'rb-inotify', :require => false
+  gem 'rb-fchange', require: false
+  gem 'rb-fsevent', require: false
+  gem 'rb-inotify', require: false
   gem 'spring-commands-rspec'
 end
 
