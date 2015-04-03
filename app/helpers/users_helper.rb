@@ -4,4 +4,8 @@ module UsersHelper
     gravatar_url = "http://secure.gravatar.com/avatar/#{gravatar_id}?s=#{size}"
     image_tag gravatar_url, alt: user.name
   end
+
+  def user_signup_with_provider?
+    current_user.signup_with_provider
+  end
 end

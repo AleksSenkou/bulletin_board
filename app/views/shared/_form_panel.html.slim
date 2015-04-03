@@ -6,5 +6,5 @@
       .center
         = yield
 
-  - if links
+  - if current_page?(action: 'new')
     = render "devise/shared/links"

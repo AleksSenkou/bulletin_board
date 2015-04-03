@@ -21,7 +21,8 @@ class User < ActiveRecord::Base
         user = User.new(
           name: auth.extra.raw_info.name,
           email: email ? email : "#{TEMP_EMAIL_PREFIX}-#{auth.uid}-#{auth.provider}.com",
-          password: Devise.friendly_token[0, 20]
+          password: Devise.friendly_token[0, 20],
+          signup_with_provider: true
         )
         user.save!
       end
