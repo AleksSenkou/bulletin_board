@@ -1,5 +1,1 @@
-3) alerts:
-    messages form IN _errors (close)
-    alerts IN _messages AND messages.sass (change to bootstrap)
-    devise_helper
 6) tests!!

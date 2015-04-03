@@ -1,23 +1,20 @@
-.alert-error
-  background-color: #f2dede
-  border-color: #eed3d7
-  color: #b94a48
+@import 'bootstrap'
+
+@mixin errors
   text-align: center
+
+.alert-error
+  @extend .alert-danger
+  @include errors
 
 .alert-alert
-  background-color: #f2dede
-  border-color: #eed3d7
-  color: #b94a48
-  text-align: center
+  @extend .alert-warning
+  @include errors
 
 .alert-success
-  background-color: #dff0d8
-  border-color: #d6e9c6
-  color: #468847
-  text-align: center
+  @extend .alert-success
+  @include errors
 
 .alert-notice
-  background-color: #dff0d8
-  border-color: #d6e9c6
-  color: #468847
-  text-align: center
+  @extend .alert-info
+  @include errors
