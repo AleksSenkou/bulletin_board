@@ -1,6 +1,5 @@
 .navbar.navbar-inverse.navbar-fixed-top
   = link_to 'Bulletin Board', root_path, id: 'logo'
-
   - if user_signed_in?
     = render 'layouts/menu'
   - else

@@ -1,6 +1,10 @@
 @import "bootstrap-sprockets"
 @import "bootstrap"
 
+$white: #fff
+$grayDark: #222222
+$grayLight: #4F4F4F
+
 @mixin delay($speed)
   transition-duration: $speed
   -moz-transition-duration: $speed
@@ -32,6 +36,7 @@
 #btn-delete-account
   @extend .btn
   @extend .btn-danger
+  margin: 0 0 0 1%
 
 #btn-cancel-edit
   @extend .btn
@@ -41,3 +46,9 @@
 
 #edit-profile-bottom-part
   margin: 15% 0 0 0
+
+#edit-user-img
+  @extend .btn
+  @extend .btn-default
+  width: 200
+  margin: 1% 0 0 0

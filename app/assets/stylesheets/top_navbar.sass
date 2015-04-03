@@ -1,4 +1,6 @@
 $white: #fff
+$grayDark: #222222
+$grayLight: #4F4F4F
 
 @mixin nav_font
   font: Geneva 'Times New Roman' 110% Times serif
@@ -8,7 +10,6 @@ $white: #fff
   width: 20%
   float: right
   margin: 0.7% 0 0 0
-  text-decoration: none
   li
     list-style-type: none
     display: inline
@@ -20,15 +21,14 @@ $white: #fff
   font-size: 1.7em
   font-weight: bold
   text-transform: uppercase
+  text-decoration: none
   margin: 0.5% 0 0 1.5%
   &:hover
     color: $white
 
 #top-nav-gravatar
-  width: 40
-  height: 40
   img
-    margin: 0 0% 3% 0
+    margin: 0 0 3% 0
 
 #top-nav-ul-signed
   @include top-nav-ul
@@ -40,12 +40,12 @@ $white: #fff
     font-size: 1.1em
     width: 80
     height: 30
-    background-color: #222222
+    background-color: $grayDark
     border-radius: 8%
     color: $white
     border: 0
     &:hover
-      background-color: #4F4F4F
+      background-color: $grayLight
   li
     display: list-item
 
