@@ -1,7 +1,17 @@
+$white: #fff
+
 @mixin nav_font
   font: Geneva 'Times New Roman' 110% Times serif
 
-$white: #fff
+@mixin top-nav-ul
+  @include nav_font
+  width: 20%
+  float: right
+  margin: 0.7% 0 0 0
+  text-decoration: none
+  li
+    list-style-type: none
+    display: inline
 
 #logo
   @include nav_font
@@ -10,17 +20,38 @@ $white: #fff
   font-size: 1.7em
   font-weight: bold
   text-transform: uppercase
-  text-decoration: none
   margin: 0.5% 0 0 1.5%
   &:hover
     color: $white
 
-#navbar-ul
-  @include nav_font
-  width: 20%
-  float: right
+#top-nav-gravatar
+  width: 40
+  height: 40
+  img
+    margin: 0 0% 3% 0
+
+#top-nav-ul-signed
+  @include top-nav-ul
+
+#toggle-menu
+  margin: 0 0 0 3%
+  button
+    margin-bottom: 10%
+    font-size: 1.1em
+    width: 80
+    height: 30
+    background-color: #222222
+    border-radius: 8%
+    color: $white
+    border: 0
+    &:hover
+      background-color: #4F4F4F
+  li
+    display: list-item
+
+#top-nav-ul-not-signed
+  @include top-nav-ul
   font-size: 1.4em
-  margin: 0.7% 0 0 0
   a
     color: rgb(210, 210, 210)
     text-decoration: none
