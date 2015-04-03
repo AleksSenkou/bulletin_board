@@ -4,6 +4,7 @@ ruby '2.2.0'
 gem 'rails', '4.2.0'
 gem 'pg' # use for heroku
 gem 'app_config'
+gem 'rails-i18n', '~> 4.0.0'
 
 # group :(o)auth do
 gem 'devise'
@@ -30,6 +31,7 @@ gem 'simple_form'
 # end
 
 group :development do
+  gem "better_errors"
   gem 'guard-bundler'
   gem 'guard-rails'
   gem 'guard-rspec'
