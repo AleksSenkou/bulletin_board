@@ -1,11 +1,4 @@
 8) tests!!
-  user_model: providers
-  user_pages: show
-
-9) user show page
-  name
-  email
-  image
 
 10) adverts model
   name
