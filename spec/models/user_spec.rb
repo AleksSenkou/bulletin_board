@@ -67,7 +67,13 @@ RSpec.describe User, type: :model do
     end
 
     context "dosn't match confirmation" do
+      before { @user.password_confirmation = 'mismatch' }
+      it { should_not be_valid }
+    end
 
+    context 'is too short' do
+      before { @user.password = @user.password_confirmation = 'a' * 5 }
+      it { should_not be_valid }
     end
   end
 end
