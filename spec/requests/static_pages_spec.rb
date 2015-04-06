@@ -29,14 +29,8 @@ describe 'Static pages' do
 
     describe 'for sign-up user' do
       context 'without provider' do
-        before {
-          user_without_provider = User.create(
-                                          name: 's',
-                                          email: 'sd@gd.com',
-                                          password: 'asdasdasd',
-                                          password_confirmation: 'asdasdasd')
-          sign_in user_without_provider
-        }
+        let(:user) { FactoryGirl.create :user }
+        before { sign_in user }
 
         it { should have_link "Settings", href: edit_user_registration_path }
         it { should_not have_link "Change avatar" }

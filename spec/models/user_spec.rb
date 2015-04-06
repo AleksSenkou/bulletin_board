@@ -5,7 +5,7 @@ RSpec.describe User, type: :model do
                    password: 'asdasdasd', password_confirmation: 'asdasdasd') }
   subject { @user }
 
-  describe 'content' do
+  describe 'Content' do
     it { should respond_to :name }
     it { should respond_to :email }
     it { should respond_to :encrypted_password }
@@ -13,7 +13,7 @@ RSpec.describe User, type: :model do
     it { should be_valid }
   end
 
-  describe 'name' do
+  describe 'Name' do
     context 'is not present' do
       before { @user.name = '' }
       it { should_not be_valid }
@@ -25,7 +25,7 @@ RSpec.describe User, type: :model do
     end
   end
 
-  describe 'email' do
+  describe 'Email' do
     context 'is not present' do
       before { @user.email = '' }
       it { should_not be_valid }
@@ -62,7 +62,7 @@ RSpec.describe User, type: :model do
     end
   end
 
-  describe 'password' do
+  describe 'Password' do
     context 'is not present' do
       before { @user.password = '' }
       it { should_not be_valid }

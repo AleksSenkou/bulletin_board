@@ -1,0 +1,12 @@
+.form-panel
+  .panel.panel-default
+    .panel-heading
+      h4 New advert
+    .panel-body
+      .center
+        = simple_form_for(@advert) do |f|
+          = f.input :name, autofocus: true
+          = f.input :description
+          = f.input :price
+          = f.button :submit, 'Create'
+
