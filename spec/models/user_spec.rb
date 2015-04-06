@@ -5,11 +5,13 @@ RSpec.describe User, type: :model do
                    password: 'asdasdasd', password_confirmation: 'asdasdasd') }
   subject { @user }
 
-  it { should respond_to :name }
-  it { should respond_to :email }
-  it { should respond_to :encrypted_password }
-  it { should respond_to :signup_with_provider }
-  it { should be_valid }
+  describe 'content' do
+    it { should respond_to :name }
+    it { should respond_to :email }
+    it { should respond_to :encrypted_password }
+    it { should respond_to :signup_with_provider }
+    it { should be_valid }
+  end
 
   describe 'name' do
     context 'is not present' do

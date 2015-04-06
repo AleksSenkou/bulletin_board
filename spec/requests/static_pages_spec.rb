@@ -6,8 +6,10 @@ describe 'Static pages' do
   describe "Home page" do
     before { visit root_path }
 
-    it { should have_title "Bulletin Board" }
-    it { should have_link "Bulletin Board", href: root_path }
+    context 'content' do
+      it { should have_title "Bulletin Board" }
+      it { should have_link "Bulletin Board", href: root_path }
+    end
 
     context "for non sign-in user" do
       it { should have_link "Login", href: new_user_session_path }
