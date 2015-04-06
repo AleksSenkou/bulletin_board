@@ -1,5 +1,4 @@
 8) tests!!
-  static_pages: home
   user_model: providers
   user_pages: show
 
