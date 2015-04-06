@@ -1,1 +1,47 @@
-6) tests!!
+8) tests!!
+  static_pages: home
+  user_model: providers
+  user_pages: show
+
+9) user show page
+  name
+  email
+  image
+
+10) adverts model
+  name
+  description
+  photo
+
+11) adverts controller
+  new
+  create
+  edit
+  update
+  show
+  destroy
+
+12) user has many adverts
+  user show
+  user.advert
+
+6) экт
+  какае-то хуйня
+
+7) сповм
+  1-я лаба
+
+13) сифо
+  4-ое пз
+  5-ое пз
+
+14) авмис
+  1-я лаба
+
+15) моделька
+  3-я лаба
+
+16) схт
+  1-я лаба
+
+

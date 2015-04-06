@@ -33,18 +33,6 @@ class UsersController < ApplicationController
     end
   end
 
-  # def finish_signup
-  #   # authorize! :update, @user
-  #   if request.patch? && params[:user] #&& params[:user][:email]
-  #     if @user.update_with_password(user_email)
-  #       sign_in(@user, bypass: true)
-  #       redirect_to root_url, notice: 'Your profile was successfully updated.'
-  #     else
-  #       @show_errors = true
-  #     end
-  #   end
-  # end
-
   private
     def set_user
       @user = User.find(params[:id])
