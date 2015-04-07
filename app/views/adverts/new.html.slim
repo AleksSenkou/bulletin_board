@@ -4,7 +4,10 @@
       h4 New advert
     .panel-body
       .center
-        = simple_form_for(@advert) do |f|
+        - @advert.photos.each do |a|
+          = image_tag(a.data.url(:normal))
+
+        = simple_form_for(@advert, html: { multipart: true }) do |f|
           = f.input :name, autofocus: true, placeholder: "Advert name",
                                             required: false
           = f.input :description, placeholder: "Write a description, please",
@@ -12,5 +15,7 @@
           = f.input :price, required: false
           = f.input :type, collection: Advert::TYPES,
                            default: 0, required: false
+          = file_field_tag('advert_photos_data', multiple: true,
+                            name: "advert[photos_attributes][][data]")
           = f.button :submit, 'Create'
 

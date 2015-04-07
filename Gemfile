@@ -5,6 +5,7 @@ gem 'rails', '4.2.0'
 gem 'pg' # use for heroku
 gem 'app_config'
 gem 'rails-i18n', '~> 4.0.0'
+gem 'protected_attributes'
 
 # group :(o)auth do
 gem 'devise'

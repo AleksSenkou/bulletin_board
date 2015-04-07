@@ -1,0 +1,4 @@
+- @advert.photos.each do |a|
+  = image_tag(a.data.url(:mini))
+  = link_to 'Delete', advert_delete_data_path(advert_id: a.advert_id,
+                                              id: a.id)
