@@ -16,6 +16,7 @@ class AdvertsController < ApplicationController
   end
 
   def show
+    @advert = current_user.adverts.find(params[:id])
   end
 
   def edit

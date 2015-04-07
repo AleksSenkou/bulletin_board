@@ -11,4 +11,5 @@ Rails.application.configure do
   config.assets.digest = true
   config.assets.raise_runtime_errors = true
   config.i18n.default_locale = :en
+  Paperclip.options[:command_path] = "/usr/local/bin/"
 end

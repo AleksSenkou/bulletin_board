@@ -27,6 +27,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'jquery-rails'
 gem 'bootstrap-sass', '~> 3.3.3'
 gem 'simple_form'
+gem 'paperclip', "~> 4.2"
 # gem 'devise-bootstrap-views' # not stable gem
 # end
 
@@ -47,6 +48,7 @@ group :development, :test do
   gem 'web-console', '~> 2.0'
   gem 'spring'
   gem 'factory_girl_rails'
+  gem 'populator'
   gem 'faker'
   gem 'rspec-rails'
   gem 'rubocop'
