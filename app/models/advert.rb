@@ -1,11 +1,14 @@
 class Advert < ActiveRecord::Base
-  TYPES_LIST = %[sale buy exchange favor rent]
+  belongs_to :user
+  default_scope -> { order('created_at DESC') }
+  self.inheritance_column = nil
 
-  validates_presence_of :name, :description, :price, :type
+  TYPES = %w[Sale Buy Exchange Favor Rent]
+
+  validates_presence_of :name, :description, :price, :type, :user_id
   validates :name, length: { maximum: 40 }
   validates :description, length: { maximum: 4000 }
-  validates :price, numericality: { greater_then_or_equal_to: 0,
-                                    less_then: 1_000_001 }
-  validates :type, allow_blank: true, inclusion: { in: TYPES_LIST }
-  belongs_to :user
+  validates :price, numericality: { greater_than_or_equal_to: 0,
+                                    less_than: 1_000_001 }
+  validates :type, allow_blank: true, inclusion: { in: TYPES }
 end

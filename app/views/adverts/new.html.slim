@@ -5,9 +5,12 @@
     .panel-body
       .center
         = simple_form_for(@advert) do |f|
-          = f.input :name, autofocus: true
-          = f.input :description
-          = f.input :price
-          = f.input :type
+          = f.input :name, autofocus: true, placeholder: "Advert name",
+                                            required: false
+          = f.input :description, placeholder: "Write a description, please",
+                                  required: false
+          = f.input :price, required: false
+          = f.input :type, collection: Advert::TYPES,
+                           default: 0, required: false
           = f.button :submit, 'Create'
 
