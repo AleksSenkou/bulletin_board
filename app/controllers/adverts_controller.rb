@@ -3,6 +3,7 @@ class AdvertsController < ApplicationController
 
   def new
     @advert = current_user.adverts.build
+    @types = Advert::TYPES_LIST
   end
 
   def create
@@ -29,6 +30,6 @@ class AdvertsController < ApplicationController
 
   private
     def adverts_params
-      params.require(:advert).permit(:name, :content, :price)
+      params.require(:advert).permit(:name, :content, :price, :type)
     end
 end
