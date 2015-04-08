@@ -2,8 +2,8 @@ p = @advert.name
 p = @advert.description
 p = @advert.type
 
-/ - @advert.photos.each do |photo|
-  / = image_tag(photo.data.url(:normal))
+- @pictures.each do |picture|
+  = image_tag(picture.image.url(:normal))
 
 / # = link_to 'new photo', new_photo_path
 

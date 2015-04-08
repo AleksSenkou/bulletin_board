@@ -7,16 +7,31 @@ class AdvertsController < ApplicationController
 
   def create
     @advert = current_user.adverts.build(adverts_params)
-    if @advert.save
-      flash[:notice] = 'Advert had been sent to moderator'
-      redirect_to root_url
-    else
-      render 'new'
+
+    respond_to do |format|
+      if @advert.save
+
+        if params[:images]
+          params[:images].each do |image|
+            @advert.pictures.create(image: image)
+          end
+        end
+
+        format.html {
+          flash[:notice] = 'Advert had been sent to moderator'
+          redirect_to root_url
+        }
+        # format.json {}
+      else
+        format.html { render action: 'new' }
+        # format.json {}
+      end
     end
   end
 
   def show
     @advert = current_user.adverts.find(params[:id])
+    @pictures = @advert.pictures
   end
 
   def edit
