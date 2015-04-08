@@ -1,22 +1,12 @@
-10) adverts model
-  photo
-
 11) adverts controller
-  new
-  create
   edit
   update
-  show
   destroy
-
-12) user has many adverts
-  user show
-  user.advert
 
 13) gravatar_img_tag
 
 14) экт
-  какае-то хуйня
+  хуйня
 
 15) сповм
   1-я лаба
