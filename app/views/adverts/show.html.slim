@@ -1,4 +1,13 @@
-- @advert.photos.each do |a|
-  = image_tag(a.data.url(:mini))
-  = link_to 'Delete', advert_delete_data_path(advert_id: a.advert_id,
-                                              id: a.id)
+p = @advert.name
+p = @advert.description
+p = @advert.type
+
+/ - @advert.photos.each do |photo|
+  / = image_tag(photo.data.url(:normal))
+
+/ # = link_to 'new photo', new_photo_path
+
+/ - @advert.photos.each do |a|
+/   = image_tag(a.data.url(:normal))
+/   = link_to 'Delete', advert_delete_data_path(advert_id: a.advert_id,
+/                                               id: a.id)

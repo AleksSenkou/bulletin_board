@@ -1,8 +1,5 @@
 class Advert < ActiveRecord::Base
   belongs_to :user
-  has_many :photos #, :as => :attachable
-  accepts_nested_attributes_for :photos, allow_destroy: true
-
   default_scope -> { order('created_at DESC') }
   self.inheritance_column = nil
 
@@ -14,6 +11,4 @@ class Advert < ActiveRecord::Base
   validates :price, numericality: { greater_than_or_equal_to: 0,
                                     less_than: 1_000_001 }
   validates :type, allow_blank: true, inclusion: { in: TYPES }
-
-  attr_accessible :photos_attributes
 end

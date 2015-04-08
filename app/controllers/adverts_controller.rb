@@ -28,15 +28,6 @@ class AdvertsController < ApplicationController
   def destroy
   end
 
-  def delete_photo_data
-    ad = current_user.adverts.find(params[:advert_id])
-    photo_data = ad.photos.find(params[:id])
-    photo_data.data.clear
-    photo_data.destroy
-    ad.save!
-    redirect_to :back
-  end
-
   private
     def adverts_params
       params.require(:advert).permit(:name, :description, :price, :type)
