@@ -21,9 +21,8 @@ db/*.sqlite3
 /log/*
 /tmp/*
 /app/assets/images/**/*
-!/app/assets/images/facebook.jpg
-!/app/assets/images/twitter.jpg
-
+!facebook.jpg
+!twitter.jpg
 
 # various artifacts
 **.war

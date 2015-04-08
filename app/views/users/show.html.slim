@@ -3,6 +3,6 @@ p = @user.name
 
 .container
   - @adverts.each do |advert|
-    p = link_to image_tag(advert.pictures.first.image.url(:normal)), advert_path(advert)
+    p = link_to image_tag(advert.pictures.first.image.url), advert_path(advert)
     p = advert.name
 

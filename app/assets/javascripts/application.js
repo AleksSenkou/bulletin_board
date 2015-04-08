@@ -4,19 +4,6 @@
 //= require bootstrap-sprockets
 //= require_tree .
 
-// $(document).ready(function() {
-
-//     var iconResolver = function(iconSelector) {
-//         $(iconSelector).mouseenter(function() {
-//             $(iconSelector).fadeTo('fast', 1);
-//         })
-//         $(iconSelector).mouseleave(function() {
-//             $(iconSelector).fadeTo('fast', 0.7);
-//         })
-//     };
-
-//     ['#facebook_icon', '#twitter_icon'].forEach(function(icon){
-//         iconResolver(icon);
-//      });
-// })
-
+$(document).on("ready page:change", function() {
+    $('#tag-tooltip').tooltip();
+});

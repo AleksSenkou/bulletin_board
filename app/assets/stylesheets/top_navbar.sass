@@ -1,5 +1,7 @@
+@import 'bootstrap'
+
 $white: #fff
-$grayDark: #222222
+$grayDark: #222
 $grayLight: #4F4F4F
 
 @mixin nav_font
@@ -7,11 +9,29 @@ $grayLight: #4F4F4F
 
 @mixin top-nav-ul
   @include nav_font
-  width: 20%
+  width: 25%
   float: right
-  margin: 0.7% 0 0 0
+  margin-top: 12
   li
     list-style-type: none
+    display: inline
+
+@mixin a-decoration
+  a
+    color: rgb(210, 210, 210)
+    text-decoration: none
+    &:hover
+      color: $white
+
+#top-nav-ul-signed
+  @include top-nav-ul
+
+#top-nav-ul-not-signed
+  @include top-nav-ul
+  @include a-decoration
+  font-size: 1.5em
+  li
+    margin-right: 8%
     display: inline
 
 #logo
@@ -22,21 +42,28 @@ $grayLight: #4F4F4F
   font-weight: bold
   text-transform: uppercase
   text-decoration: none
-  margin: 0.5% 0 0 1.5%
+  margin: 10 0 0 1.5%
   &:hover
     color: $white
 
+#top-new-advert
+  @include a-decoration
+  a
+    @extend .glyphicon
+  margin: 0% 20% 0% 0
+
+#tag-tooltip + .tooltip > .tooltip-inner
+  background-color: $grayDark
+  color: $white
+  font-size: 1.2em
+
 #top-nav-gravatar
   img
-    margin: 0 0 3% 0
-
-#top-nav-ul-signed
-  @include top-nav-ul
+    margin: 0
 
 #toggle-menu
-  margin: 0 0 0 3%
+  margin: 0 0 0 1.5%
   button
-    margin-bottom: 10%
     font-size: 1.1em
     width: 80
     height: 30
@@ -48,15 +75,3 @@ $grayLight: #4F4F4F
       background-color: $grayLight
   li
     display: list-item
-
-#top-nav-ul-not-signed
-  @include top-nav-ul
-  font-size: 1.4em
-  a
-    color: rgb(210, 210, 210)
-    text-decoration: none
-    &:hover
-      color: $white
-  li
-    margin-right: 8%
-    display: inline

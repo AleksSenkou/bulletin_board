@@ -1,5 +1,6 @@
 ul#top-nav-ul-signed
-  li = link_to '+', new_advert_path
+  li#top-new-advert
+    = link_to '+', new_advert_path, id: 'tag-tooltip', data: { toggle: 'tooltip' }, 'data-original-title' => "New advert", 'data-placement' => 'left'
   li#top-nav-gravatar = link_to gravatar_for(current_user, 30), current_user
   li#toggle-menu
     .btn-group
