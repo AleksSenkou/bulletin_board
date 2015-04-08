@@ -6,5 +6,5 @@
       .center
         = yield
 
-  - if !current_page?(controller: 'registrations', action: 'edit')
+  - if links
     = render "devise/shared/links"

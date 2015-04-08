@@ -1,8 +1,9 @@
-p = gravatar_for @user, 100
-p = @user.name
+#show-right
+  p.avatar = gravatar_for @user, 200
+  p = @user.name.capitalize
 
-.container
-  - @adverts.each do |advert|
-    p = link_to image_tag(advert.pictures.first.image.url), advert_path(advert)
-    p = advert.name
+#show-left
+  - @adverts.each do |ad|
+    p = link_to image_tag(ad.pictures.first.image.url), advert_path(ad)
+    p = ad.name
 

@@ -4,7 +4,7 @@ ul#top-nav-ul-signed
                                     data: { toggle: 'tooltip' },
                                     'data-original-title' => "New advert",
                                     'data-placement' => 'left'
-  li#top-nav-gravatar = link_to gravatar_for(current_user, 30), current_user
+  li.avatar = link_to gravatar_for(current_user, 30), current_user
   li#toggle-menu
     .btn-group
       button.dropdown-toggle type="button" data-toggle="dropdown" aria-expanded="false"

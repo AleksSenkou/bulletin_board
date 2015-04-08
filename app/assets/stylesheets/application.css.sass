@@ -2,9 +2,15 @@
  *= require_tree .
  *= require_self
  */
+@import 'bootstrap'
 
 #yield_block
+  @extend .container
   margin-top: 5%
 
 .center
   text-align: center
+
+.avatar
+  img
+    @extend .img-circle
