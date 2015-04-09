@@ -1,13 +1,20 @@
-p = @advert.name
-p = @advert.description
-p = @advert.type
+.row
+  - @pictures.each do |picture|
+    .col-md-3
+      .show-advert-image
+        = image_tag(picture.image.url)
+      br
 
-- @pictures.each do |picture|
-  = image_tag(picture.image.url(:normal))
+#advert-info
+  p.options Name | #{@advert.name.capitalize}
+  p.options Description:
+  p#description
+    = @advert.description
+  p.options Type | #{@advert.type}
+  p.options Price | #{@advert.price}$
 
-/ # = link_to 'new photo', new_photo_path
+#edit-advert-link
+  = link_to 'Edit this advert', edit_advert_path(@advert)
 
-/ - @advert.photos.each do |a|
-/   = image_tag(a.data.url(:normal))
-/   = link_to 'Delete', advert_delete_data_path(advert_id: a.advert_id,
-/                                               id: a.id)
+#destroy-advert-link
+  = link_to 'Delete advert', @advert, data: { confirm: "Are you sure?" }, method: :delete

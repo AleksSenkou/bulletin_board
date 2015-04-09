@@ -2,14 +2,34 @@
  *= require_tree .
  *= require_self
  */
+
 $grayDark: #222222
 $grayLight: #4F4F4F
 
 @import 'bootstrap'
 
+@mixin delay($speed)
+  transition-duration: $speed
+  -moz-transition-duration: $speed
+  -webkit-transition-duration: $speed
+  -o-transition-duration: $speed
+
+@mixin advert-image($size)
+  img
+    background-color: $grayLight
+    @extend .img-rounded
+    height: $size
+    width: $size
+    opacity: 0.9
+    @include delay(.6s)
+    &:hover
+      border: 4px solid $grayDark
+      @include delay(.4s)
+      opacity: 1
+
 #yield_block
   @extend .container
-  margin-top: 5%
+  margin: 5% 0 5% 0
 
 .center
   text-align: center
@@ -18,16 +38,8 @@ $grayLight: #4F4F4F
   img
     @extend .img-circle
 
-// .image-out
-//   img
-//     background-color: $grayLight
-//     @extend .img-rounded
-//     height: 180px
-//     width: 180px
+.show-user-advert-image
+  @include advert-image(180px)
 
-// .image-in
-//   img
-//     background-color: $grayDark
-//     @extend .img-rounded
-//     height: 180px
-//     width: 180px
+.show-advert-image
+  @include advert-image(250px)

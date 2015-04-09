@@ -1,5 +1,10 @@
 class AdvertsController < ApplicationController
   before_action :authenticate_user!, except: [:index]
+  before_action :set_advert, only: [:show, :edit, :update]
+
+  def index
+    @adverts = Advert.all.paginate(page: params[:page], per_page: 30)
+  end
 
   def new
     @advert = current_user.adverts.build
@@ -30,7 +35,6 @@ class AdvertsController < ApplicationController
   end
 
   def show
-    @advert = current_user.adverts.find(params[:id])
     @pictures = @advert.pictures
   end
 
@@ -41,9 +45,15 @@ class AdvertsController < ApplicationController
   end
 
   def destroy
+    Advert.find(params[:id]).destroy
+    redirect_to current_user
   end
 
   private
+    def set_advert
+      @advert = current_user.adverts.find(params[:id])
+    end
+
     def adverts_params
       params.require(:advert).permit(:name, :description, :price, :type)
     end
