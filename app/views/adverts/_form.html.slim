@@ -1,0 +1,16 @@
+= simple_form_for(advert, html: { multipart: true }) do |f|
+  #form-advert-name
+    = f.input :name, autofocus: true, placeholder: "Advert name",
+                     required: false
+  #form-advert-description
+    = f.input :description, placeholder: "Write a description, please",
+        required: false, as: :text, input_html: { rows: 5 }
+  #form-advert-price
+    = f.input :price, required: false
+  #form-advert-type
+    = f.input :type, collection: Advert::TYPES, default: 0,
+                     required: false
+  i You can upload pictures
+  #form-advert-file
+    = file_field_tag "images[]", type: :file, multiple: true
+  = f.button :submit, 'Edit', id: 'form-advert-button'

@@ -1,18 +1,2 @@
 = render layout: 'shared/form_panel', locals: { title: 'New advert', links: false } do
-  = simple_form_for(@advert, html: { multipart: true }) do |f|
-    #new-advert-name
-      = f.input :name, autofocus: true, placeholder: "Advert name",
-                       required: false
-    #new-advert-description
-      = f.input :description, placeholder: "Write a description, please",
-          required: false, as: :text, input_html: { rows: 5 }
-    #new-advert-price
-      = f.input :price, required: false
-    #new-advert-type
-      = f.input :type, collection: Advert::TYPES, default: 0,
-                       required: false
-    i You can upload pictures
-    #new-advert-file
-      = file_field_tag "images[]", type: :file, multiple: true
-    = f.button :submit, 'Create', id: 'create-advert-button'
-
+  = render partial: "form", locals: { advert: @advert }

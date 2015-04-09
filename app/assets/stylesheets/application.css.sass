@@ -3,10 +3,10 @@
  *= require_self
  */
 
+@import 'bootstrap'
+
 $grayDark: #222222
 $grayLight: #4F4F4F
-
-@import 'bootstrap'
 
 @mixin delay($speed)
   transition-duration: $speed
@@ -29,7 +29,8 @@ $grayLight: #4F4F4F
 
 #yield_block
   @extend .container
-  margin: 5% 0 5% 0
+  margin-top: 5%
+  margin-bottom: 6%
 
 .center
   text-align: center

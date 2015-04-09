@@ -1,0 +1,11 @@
+= render layout: 'shared/form_panel', locals: { title: 'Edit advert' , links: false} do
+
+
+
+  = render partial: "form", locals: { advert: @advert }
+
+  .edit-profile-bottom-part
+    #destroy-advert-link
+      = link_to 'Delete advert', @advert, data: { confirm: "Are you sure?" }, method: :delete
+    br
+    = link_to "Cancel", @advert, id: 'btn-cancel-edit'

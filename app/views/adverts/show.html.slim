@@ -13,8 +13,9 @@
   p.options Type | #{@advert.type}
   p.options Price | #{@advert.price}$
 
-#edit-advert-link
-  = link_to 'Edit this advert', edit_advert_path(@advert)
-
-#destroy-advert-link
-  = link_to 'Delete advert', @advert, data: { confirm: "Are you sure?" }, method: :delete
+- if current_user == @user
+  #show-advert-edit-btn
+    = link_to 'Edit this advert', edit_advert_path(@advert)
+- else
+  br
+  = link_to gravatar_for(@user, 40), user_path(@user)
