@@ -13,4 +13,6 @@ class Advert < ActiveRecord::Base
   validates :price, numericality: { greater_than_or_equal_to: 0,
                                     less_than: 1_000_001 }
   validates :type, allow_blank: true, inclusion: { in: TYPES }
+
+  accepts_nested_attributes_for :pictures
 end

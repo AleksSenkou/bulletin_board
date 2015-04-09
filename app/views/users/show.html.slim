@@ -1,9 +1,16 @@
-#show-right
-  p.avatar = gravatar_for @user, 200
-  p = @user.name.capitalize
+#show-right-part
+  .avatar = gravatar_for @user, 200
+  #show-user-name = @user.name.capitalize
+  #show-user-email = @user.email
 
-#show-left
-  - @adverts.each do |ad|
-    p = link_to image_tag(ad.pictures.first.image.url), advert_path(ad)
-    p = ad.name
+#show-left-part
+  .row
+    - @adverts.each do |ad|
+      .col-md-4.center
+        div.show-user-advert-image
+          = link_to image_tag(ad.pictures.first.image.url), advert_path(ad)
+        / #show-user-advert-name = ad.name.capitalize
+        br
+  .center
+    = will_paginate @adverts
 

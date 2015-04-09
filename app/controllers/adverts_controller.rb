@@ -13,7 +13,12 @@ class AdvertsController < ApplicationController
 
         if params[:images]
           params[:images].each do |image|
-            @advert.pictures.create(image: image)
+            if image.size > 1.megabytes
+              # flash[:error] = 'The picture size must be less than 1 megabyte'
+              # redirect_to new_advert_path
+            else
+              @advert.pictures.create(image: image)
+            end
           end
         end
 
@@ -45,6 +50,6 @@ class AdvertsController < ApplicationController
 
   private
     def adverts_params
-      params.require(:advert).permit(:name, :description, :price, :type)
+      params.require(:advert).permit(:name, :description, :price, :type, :images)
     end
 end

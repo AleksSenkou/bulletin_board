@@ -28,6 +28,8 @@ gem 'jquery-rails'
 gem 'bootstrap-sass', '~> 3.3.3'
 gem 'simple_form'
 gem 'paperclip', "~> 4.2"
+gem 'will_paginate'
+gem 'bootstrap-will_paginate'
 # gem 'devise-bootstrap-views' # not stable gem
 # end
 

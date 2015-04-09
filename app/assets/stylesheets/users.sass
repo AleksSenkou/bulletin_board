@@ -4,6 +4,7 @@
 $white: #fff
 $grayDark: #222222
 $grayLight: #4F4F4F
+$blue: #23527c
 
 @mixin delay($speed)
   transition-duration: $speed
@@ -53,7 +54,34 @@ $grayLight: #4F4F4F
   margin: 4% 0 0 0
   float: right
 
-#show-right
+#show-right-part
+  @extend .col-sm-4
 
+#show-user-name
+  font: bold 2em 'Helvetica'
+  color: #333
 
-#show-left
+#show-user-email
+  font: normal 1.1em 'Helvetica'
+  color: $grayLight
+
+#show-left-part
+  @extend .col-sm-8
+
+#show-user-advert-name
+  margin: 1% 0 0 0
+  font: normal 1.3em 'Helvetica'
+  color: #000
+
+.show-user-advert-image
+  img
+    background-color: $grayLight
+    @extend .img-rounded
+    height: 180px
+    width: 180px
+    opacity: 0.9
+    @include delay(.6s)
+    &:hover
+      border: 4px solid $grayDark
+      @include delay(.4s)
+      opacity: 1
