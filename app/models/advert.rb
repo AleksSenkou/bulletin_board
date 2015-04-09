@@ -14,5 +14,5 @@ class Advert < ActiveRecord::Base
                                     less_than: 1_000_001 }
   validates :type, allow_blank: true, inclusion: { in: TYPES }
 
-  accepts_nested_attributes_for :pictures
+  # accepts_nested_attributes_for :pictures
 end

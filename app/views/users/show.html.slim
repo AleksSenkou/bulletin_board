@@ -4,13 +4,16 @@
   #show-user-email = @user.email
 
 #show-left-part
-  .row
-    - @adverts.each do |ad|
-      .col-md-4.center
-        div.show-user-advert-image
-          = link_to image_tag(ad.pictures.first.image.url), advert_path(ad)
-        / #show-user-advert-name = ad.name.capitalize
-        br
-  .center
-    = will_paginate @adverts
-
+  - if @adverts.any?
+    .row
+      - @adverts.each do |ad|
+        .col-md-4.center
+          div.show-user-advert-image
+            = link_to image_tag(ad.pictures.first.image.url), advert_path(ad)
+          br
+    .center
+      = will_paginate @adverts
+  - else
+    .center
+      p Oops, you have no adverts
+      = link_to 'New advert', new_advert_path, id: 'show-user-add-advert-btn'
