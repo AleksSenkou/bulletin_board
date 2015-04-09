@@ -1,6 +1,11 @@
 = render layout: 'shared/form_panel', locals: { title: 'Edit advert' , links: false} do
 
-
+  .row
+    - @pictures.each do |picture|
+      .col-md-2
+        .edit-advert-image
+          = image_tag(picture.image.url)
+        br
 
   = render partial: "form", locals: { advert: @advert }
 

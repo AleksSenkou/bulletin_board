@@ -39,6 +39,7 @@ class AdvertsController < ApplicationController
   end
 
   def edit
+    @pictures = @advert.pictures
   end
 
   def update
