@@ -1,11 +1,11 @@
 require "faker"
 require "populator"
 
-USERS_COUNT = 1
+USERS_COUNT = 2
 IDENTITES_COUNT = 1
-USERS_WITH_ADVERTS = 1
-ADVETRS_COUNT = 2
-PICTURES_COUNT = 5
+USERS_WITH_ADVERTS = 2
+ADVETRS_COUNT = 10
+PICTURES_COUNT = 3
 
 namespace :db do
   desc 'Fill database with sample data'

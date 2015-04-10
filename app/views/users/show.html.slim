@@ -9,7 +9,12 @@
       - @adverts.each do |ad|
         .col-md-4.center
           div.show-user-advert-image
-            = link_to image_tag(ad.pictures.first.image.url), advert_path(ad)
+            - if ad.pictures.any?
+              = link_to image_tag(ad.pictures.first.image.url), ad
+            - else
+              = link_to image_tag('empty.jpg'), ad
+            - name = (ad.name.size > 16) ? (ad.name[0, 15] + ' ...') : ad.name
+            p = name.capitalize
           br
     .center
       = will_paginate @adverts

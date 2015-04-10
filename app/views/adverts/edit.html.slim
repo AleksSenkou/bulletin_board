@@ -3,11 +3,12 @@
   - if @pictures.any?
     .row
       - @pictures.each do |picture|
-        .col-md-2
-          .edit-advert-image
-            = image_tag(picture.image.url)
-            = link_to 'Delete', picture, method: :delete
-          br
+        div id="#picture_#{picture.id}"
+          .col-md-2
+            .edit-advert-image
+              = image_tag(picture.image.url)
+              = link_to 'Delete', picture, method: :delete
+            br
 
   = render partial: "form", locals: { advert: @advert }
 

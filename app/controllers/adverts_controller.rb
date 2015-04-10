@@ -15,13 +15,12 @@ class AdvertsController < ApplicationController
           params[:images].each do |image|
             @advert.pictures.create(image: image)
           end
-        else
-          image = ActionController::Base.helpers.asset_path('empty.jpg')
-          @advert.pictures.create(image: image)
+        # else
+        #   @advert.pictures.create(image: image)
         end
         format.html {
           flash[:notice] = 'Advert had been sent to moderator'
-          redirect_to root_url
+          redirect_to @advert
         }
       else
         format.html { render action: 'new' }

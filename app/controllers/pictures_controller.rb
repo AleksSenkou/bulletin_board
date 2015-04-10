@@ -10,7 +10,7 @@ class PicturesController < ApplicationController
     @picture.destroy
     respond_to do |format|
       format.html { redirect_to edit_advert_url @picture.advert }
-      format.js
+      # format.js
     end
   end
 
