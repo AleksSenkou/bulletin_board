@@ -4,21 +4,11 @@
   #show-user-email = @user.email
 
 #show-left-part
-  - if @adverts.any?
-    .row
-      - @adverts.each do |ad|
-        .col-md-4.center
-          div.show-user-advert-image
-            - if ad.pictures.any?
-              = link_to image_tag(ad.pictures.first.image.url), ad
-            - else
-              = link_to image_tag('empty.jpg'), ad
-            - name = (ad.name.size > 16) ? (ad.name[0, 15] + ' ...') : ad.name
-            p = name.capitalize
-          br
-    .center
-      = will_paginate @adverts
-  - else
+
+  = render partial: 'shared/pictures', locals: { n_size: 20, adverts: @adverts, image_class: "col-md-4 show-user-advert-image" }
+
+  - if @adverts.empty? && @user == current_user
     .center
       p Oops, you have no adverts
       = link_to 'New advert', new_advert_path, id: 'show-user-add-advert-btn'
+

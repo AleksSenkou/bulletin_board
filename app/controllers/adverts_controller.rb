@@ -15,8 +15,6 @@ class AdvertsController < ApplicationController
           params[:images].each do |image|
             @advert.pictures.create(image: image)
           end
-        # else
-        #   @advert.pictures.create(image: image)
         end
         format.html {
           flash[:notice] = 'Advert had been sent to moderator'

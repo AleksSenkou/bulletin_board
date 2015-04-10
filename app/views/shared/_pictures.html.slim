@@ -1,0 +1,15 @@
+- name = -> (ad_n) { ad_n.size > n_size ? (ad_n[0, n_size] + ' ...') : ad_n }
+
+- if adverts.any?
+  .row
+    - adverts.each do |ad|
+      .center
+        div class="#{image_class}"
+          - if ad.pictures.any?
+            = link_to image_tag(ad.pictures.first.image.url), ad
+          - else
+            = link_to image_tag('empty.jpg'), ad
+          p = name.call(ad.name).capitalize
+          br
+  .center
+    = will_paginate adverts
