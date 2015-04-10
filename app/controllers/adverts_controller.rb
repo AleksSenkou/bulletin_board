@@ -1,6 +1,6 @@
 class AdvertsController < ApplicationController
   before_action :authenticate_user!, except: [:show]
-  before_action :set_advert, only: [:edit, :update, :destroy]
+  before_action :correct_advert, only: [:edit, :update, :destroy]
 
   def new
     @advert = current_user.adverts.build
@@ -15,15 +15,16 @@ class AdvertsController < ApplicationController
           params[:images].each do |image|
             @advert.pictures.create(image: image)
           end
+        else
+          image = ActionController::Base.helpers.asset_path('empty.jpg')
+          @advert.pictures.create(image: image)
         end
         format.html {
           flash[:notice] = 'Advert had been sent to moderator'
           redirect_to root_url
         }
-        # format.json {}
       else
         format.html { render action: 'new' }
-        # format.json {}
       end
     end
   end
@@ -50,10 +51,8 @@ class AdvertsController < ApplicationController
           flash[:notice] = 'Advert was successfully updated.'
           redirect_to @advert
         }
-        # format.json {}
       else
         format.html { render action: 'edit' }
-        # format.json {}
       end
     end
   end
@@ -64,8 +63,11 @@ class AdvertsController < ApplicationController
   end
 
   private
-    def set_advert
-      @advert = current_user.adverts.find(params[:id])
+    def correct_advert
+      @advert = Advert.find(params[:id])
+      unless @advert.user == current_user
+        redirect_to @advert, alert: 'Access denied.'
+      end
     end
 
     def adverts_params

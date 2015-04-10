@@ -1,9 +1,10 @@
-.row
-  - @pictures.each do |picture|
-    .col-md-3
-      .show-advert-image
-        = image_tag(picture.image.url)
-      br
+- if @pictures.any?
+  .row
+    - @pictures.each do |picture|
+      .col-md-3
+        .show-advert-image
+          = link_to image_tag(picture.image.url), picture
+        br
 
 #advert-info
   p.options Name | #{@advert.name.capitalize}

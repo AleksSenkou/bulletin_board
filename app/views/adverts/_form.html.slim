@@ -13,4 +13,4 @@
   i You can upload pictures
   #form-advert-file
     = file_field_tag "images[]", type: :file, multiple: true
-  = f.button :submit, 'Edit', id: 'form-advert-button'
+  = f.button :submit, "#{action_name.capitalize}", id: 'form-advert-button'

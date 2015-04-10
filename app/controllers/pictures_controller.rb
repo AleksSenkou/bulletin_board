@@ -1,14 +1,24 @@
 class PicturesController < ApplicationController
   before_action :authenticate_user!, only: [:destroy]
+  before_action :correct_picture, only: [:destroy]
+
+  def show
+    @picture = Picture.find(params[:id])
+  end
 
   def destroy
-    # @picture = Picture.find(params[:id])
     @picture.destroy
-    redirect_to edit_advert_url @picture.advert
+    respond_to do |format|
+      format.html { redirect_to edit_advert_url @picture.advert }
+      format.js
+    end
   end
 
   private
-    def set_picture
-      @picture = current_user.adverts.find[params[:advert_id]].pictures.find[params[:id]]
+    def correct_picture
+      @picture = Picture.find(params[:id])
+      unless @picture.advert.user == current_user
+        redirect_to edit_advert_url(@picture.advert), alert: 'Access denied.'
+      end
     end
 end
