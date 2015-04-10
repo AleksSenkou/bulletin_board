@@ -9,9 +9,56 @@ describe 'User pages' do
   describe 'Show page' do
     before { visit user_path user }
 
-    it { should have_title 'Bulletin Board' }
-    it { should have_content user.name }
-    it { should have_selector 'img' }
+    context 'content' do
+      it { should have_title 'Bulletin Board' }
+      it { should have_content user.name }
+      it { should have_content user.email }
+      it { should have_selector 'img' }
+    end
+
+    describe 'for page with advert' do
+      let(:advert) { FactoryGirl.create(:advert, user: user) }
+      before { visit user_path user }
+
+      context 'without upload image' do
+        it "advert should have right user" do
+          expect(advert.user).to eq user
+        end
+
+        it { should have_selector 'img'}
+        it { should have_css("img[src*='empty']") }
+        it { should have_content advert.name.capitalize }
+      end
+
+      context 'with image' do
+        let(:picture) { FactoryGirl.create(:picture, advert: advert) }
+
+        it "picture should have right advert and user" do
+          expect(picture.advert).to eq advert
+          expect(picture.advert.user).to eq advert.user
+        end
+
+
+        it { should have_css("img[scr*='robot.png']") }
+      end
+    end
+
+    describe 'for page without advert' do
+      context 'current user' do
+        it { should have_link 'New advert' }
+        it { should have_content 'Oops' }
+      end
+
+      context 'nor current user' do
+        before {
+          click_link 'Log out'
+          visit user_path user
+        }
+
+        it { should_not have_link 'New advert' }
+        it { should_not have_content 'Oops' }
+      end
+    end
   end
 
   describe 'Settings page' do

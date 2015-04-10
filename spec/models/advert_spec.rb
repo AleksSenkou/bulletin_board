@@ -14,6 +14,7 @@ RSpec.describe Advert, type: :model do
     it { should respond_to :description }
     it { should respond_to :price }
     it { should respond_to :type }
+    it { should respond_to :user }
     it { should be_valid }
     its(:user) { should eq @user }
   end

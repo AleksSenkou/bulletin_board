@@ -16,15 +16,22 @@ describe 'Static pages' do
       it { should have_link "Sign up", href: new_user_registration_path }
     end
 
-    context "for sign-in user" do
+    describe "for sign-in user" do
       let(:user) { FactoryGirl.create :user }
       before { sign_in user }
 
       it { should have_link 'Log out', href: destroy_user_session_path }
       it { should have_link 'Profile' }
+      it { should have_link '+', href: new_advert_path }
       it { should_not have_link 'Login' }
       it { should have_selector 'button', text: 'Menu' }
       it { should have_selector 'img' }
+
+      context "'add advert' link" do
+        before { click_link '+' }
+        it { should have_content "New advert" }
+        it { should have_selector "button" }
+      end
     end
 
     describe 'for sign-up user' do

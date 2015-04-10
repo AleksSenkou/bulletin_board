@@ -1,6 +1,7 @@
 FactoryGirl.define do
   factory :picture do
-    advert nil
+    advert
+    image "http://robohash.org/robot.png"
   end
 
 end

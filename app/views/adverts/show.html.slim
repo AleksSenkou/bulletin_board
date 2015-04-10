@@ -19,4 +19,5 @@
     = link_to 'Edit this advert', edit_advert_path(@advert)
 - else
   br
-  = link_to gravatar_for(@user, 40), user_path(@user)
+  = link_to gravatar_for(@user, 40), user_path(@user), class:"avatar"
+  |  #{@advert.user.name}
