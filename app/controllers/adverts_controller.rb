@@ -1,10 +1,6 @@
 class AdvertsController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, except: [:show]
   before_action :set_advert, only: [:edit, :update, :destroy]
-
-  def index
-    @adverts = Advert.all.paginate(page: params[:page], per_page: 30)
-  end
 
   def new
     @advert = current_user.adverts.build

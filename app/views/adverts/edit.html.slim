@@ -5,6 +5,7 @@
       .col-md-2
         .edit-advert-image
           = image_tag(picture.image.url)
+          = link_to 'Delete', picture, method: :delete
         br
 
   = render partial: "form", locals: { advert: @advert }
