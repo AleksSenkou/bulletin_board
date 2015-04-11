@@ -18,16 +18,13 @@ describe 'User pages' do
 
     describe 'for page with advert' do
       let(:advert) { FactoryGirl.create(:advert, user: user) }
-      before { visit user_path user }
 
       context 'without upload image' do
+        it { should have_selector 'img'}
+
         it "advert should have right user" do
           expect(advert.user).to eq user
         end
-
-        it { should have_selector 'img'}
-        it { should have_css("img[src*='empty']") }
-        it { should have_content advert.name.capitalize }
       end
 
       context 'with image' do
@@ -37,9 +34,6 @@ describe 'User pages' do
           expect(picture.advert).to eq advert
           expect(picture.advert.user).to eq advert.user
         end
-
-
-        it { should have_css("img[scr*='robot.png']") }
       end
     end
 
