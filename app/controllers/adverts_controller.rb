@@ -1,6 +1,11 @@
 class AdvertsController < ApplicationController
   before_action :authenticate_user!, except: [:show]
   before_action :correct_advert, only: [:edit, :update, :destroy]
+  before_action :admin_user, only: [:index]
+
+  def index
+    @adverts = Advert.paginate(page: params[:page], per_page: 20)
+  end
 
   def new
     @advert = current_user.adverts.build
@@ -69,5 +74,9 @@ class AdvertsController < ApplicationController
 
     def adverts_params
       params.require(:advert).permit(:name, :description, :price, :type)
+    end
+
+    def admin_user
+      redirect_to root_url unless current_user.admin?
     end
 end

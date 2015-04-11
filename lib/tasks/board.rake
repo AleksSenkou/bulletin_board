@@ -1,7 +1,7 @@
 require "faker"
 require "populator"
 
-USERS_COUNT = 2
+USERS_COUNT = 50
 IDENTITES_COUNT = 1
 USERS_WITH_ADVERTS = 2
 ADVETRS_COUNT = 10
@@ -25,7 +25,8 @@ def make_users
   User.create(name: 'alex',
               email: 'aleksey.senkou@gmail.com',
               password: 'zxczxczxc',
-              password_confirmation: 'zxczxczxc')
+              password_confirmation: 'zxczxczxc',
+              admin: true)
 
   USERS_COUNT.times {
     name                 = Faker::Name.name

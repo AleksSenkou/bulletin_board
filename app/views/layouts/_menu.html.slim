@@ -15,6 +15,9 @@ ul#top-nav-ul-signed
           li = link_to 'Change avatar', "http://gravatar.com/emails"
         - else
           li = link_to 'Settings', edit_user_registration_path
+        - if current_user.admin?
+          li = link_to 'Users', users_path
+          li = link_to 'Adverts', adverts_path
         li.divider
         li = link_to 'Log out', destroy_user_session_path, method: :delete
 

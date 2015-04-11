@@ -1,0 +1,12 @@
+ul#admin-show-users
+  - @users.each do |user|
+    li
+      = link_to gravatar_for(user, 50), user, class: 'avatar'
+      = link_to 'Show', user, id: 'show-user'
+      - if !user.admin?
+        = link_to 'Delete', user, id: 'delete-user', data: { confirm: "Are you sure?" }, method: :delete
+    = link_to "  #{user.name.capitalize}", user
+    span#admin-show-adverts-count Adverts count: #{user.adverts.count}
+    hr
+
+  = will_paginate @users
