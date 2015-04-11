@@ -3,5 +3,4 @@ FactoryGirl.define do
     advert
     image "http://robohash.org/robot.png"
   end
-
 end

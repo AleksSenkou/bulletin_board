@@ -1,13 +1,13 @@
-12) test
-  Controllers
-    users show
 
-  Pages
-    home page with adverts
-    advert edit + new + show
-    picture show
 
-13) gravatar_img_tag
+13) admin
+      admin:false
+
+      users
+        show
+        delete
+
+
 
 14) экт
   хуйня

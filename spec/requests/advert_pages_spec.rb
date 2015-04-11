@@ -93,11 +93,40 @@ RSpec.describe 'Advert pages' do
 
     context 'content' do
       it { should have_content 'Edit advert' }
-      it { should have_link 'Delete advert' }
+      it { should have_content advert.description }
+      it { should have_content advert.type }
+      it { should have_link('Delete advert', href: advert_path(advert)) }
       it { should have_link 'Cancel' }
       it { should have_button 'Edit' }
     end
 
-    context ''
+    context 'with valid info' do
+      let(:new_name) { 'Advert' }
+      let(:new_description) { 'Description' }
+      before {
+        fill_in 'Name', with: new_name
+        fill_in 'Description', with: new_description
+        fill_in 'Price', with: advert.price
+        click_button 'Edit'
+      }
+
+      it { should have_selector 'div.alert.alert-notice.alert-dismissible' }
+      it { should have_link 'Edit this advert' }
+      specify { expect(advert.reload.name).to        eq new_name }
+      specify { expect(advert.reload.description).to eq new_description }
+    end
+
+    # describe 'image' do
+    #   it { should have_link('Delete', href: picture_path(picture)) }
+
+    #   context 'delete' do
+    #     before {
+    #       click_link 'Delete', href: "/pictures/1"
+    #       visit edit_advert_path advert
+    #     }
+
+    #     it { should_not have_css("img[src*='robot']") }
+    #   end
+    # end
   end
 end
