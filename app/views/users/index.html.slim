@@ -5,7 +5,7 @@ ul#admin-show-users
       = link_to 'Show', user, id: 'show-user'
       - if !user.admin?
         = link_to 'Delete', user, id: 'delete-user', data: { confirm: "Are you sure?" }, method: :delete
-    = link_to "  #{user.name.capitalize}", user
+    = link_to "  #{user.name}", user
     span#admin-show-adverts-count Adverts count: #{user.adverts.count}
     hr
 

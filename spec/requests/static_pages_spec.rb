@@ -58,5 +58,17 @@ describe 'Static pages' do
         it { should_not have_link 'Settings' }
       end
     end
+
+    describe 'for admin user' do
+      let(:admin) { FactoryGirl.create :admin }
+      before {
+        sign_in admin
+      }
+
+      it { should have_link 'Settings' }
+      it { should have_link 'Log out' }
+      it { should have_link('Users', href: users_path) }
+      it { should have_link('Adverts', href: adverts_path) }
+    end
   end
 end

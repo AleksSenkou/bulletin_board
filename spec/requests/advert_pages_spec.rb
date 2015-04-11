@@ -84,6 +84,19 @@ RSpec.describe 'Advert pages' do
       it { should have_css "img[src*='gravatar']" }
       it { should have_content user.name }
     end
+
+    context 'admin user' do
+      let(:admin) { FactoryGirl.create :admin }
+      before {
+        click_link 'Log out'
+        sign_in admin
+        visit advert_path advert
+      }
+
+      it { should have_selector 'a.avatar' }
+      it { should have_content advert.user.name }
+      it { should have_link('Edit', href: edit_advert_path(advert)) }
+    end
   end
 
   describe 'Edit' do
