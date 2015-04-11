@@ -80,5 +80,16 @@ describe 'User pages' do
       specify { expect(user.reload.name).to  eq new_name }
       specify { expect(user.reload.email).to eq new_email }
     end
+
+    context 'as admin' do
+      let(:admin) { FactoryGirl.create :admin }
+      before {
+        click_link 'Log out'
+        sign_in admin
+        visit edit_user_registration_path admin
+      }
+
+      it { should_not have_link('Delete', href: user_path(admin)) }
+    end
   end
 end

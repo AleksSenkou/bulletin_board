@@ -1,27 +1,3 @@
-13) admin
-      admin:false
-
-      users
-        show
-        delete
-
-14) экт
-  хуйня
-
-15) сповм
-  1-я лаба
-
-16) сифо
-  4-ое пз
-  5-ое пз
-
-17) авмис
-  1-я лаба
-
-18) моделька
-  3-я лаба
-
-19) схт
-  1-я лаба
-
-
+1) adverts page for admin
+2) heroku
+3) rails guide

@@ -15,9 +15,10 @@
     = f.input :current_password, autocomplete: "off"
     = f.button :submit, "Edit"
 
-  .edit-profile-bottom-part
-    i There is no need :)
-    br
-    = link_to "Delete my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, id: 'btn-delete-account'
-    br
-    = link_to "Cancel", root_path, id: 'btn-cancel-edit'
+  - if !admin?
+    .edit-profile-bottom-part
+      i There is no need :)
+      br
+      = link_to "Delete my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, id: 'btn-delete-account'
+  br
+  = link_to "Cancel", root_path, id: 'btn-cancel-edit'
