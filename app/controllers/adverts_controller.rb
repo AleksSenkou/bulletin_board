@@ -1,6 +1,6 @@
 class AdvertsController < ApplicationController
   before_action :authenticate_user!, except: [:show]
-  before_action :correct_advert, only: [:edit, :update, :destroy]
+  before_action :correct_user, only: [:edit, :update, :destroy]
   before_action :admin_user, only: [:index]
 
   def index
@@ -65,9 +65,9 @@ class AdvertsController < ApplicationController
   end
 
   private
-    def correct_advert
+    def correct_user
       @advert = Advert.find(params[:id])
-      unless @advert.user == current_user
+      unless @advert.user == current_user || admin?
         redirect_to @advert, alert: 'Access denied.'
       end
     end
@@ -77,6 +77,6 @@ class AdvertsController < ApplicationController
     end
 
     def admin_user
-      redirect_to root_url unless current_user.admin?
+      redirect_to root_url unless admin?
     end
 end

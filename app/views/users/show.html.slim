@@ -5,7 +5,7 @@
 
 #show-left-part
 
-  = render partial: 'shared/pictures', locals: { n_size: 20, adverts: @adverts, image_class: "col-md-4 show-user-advert-image" }
+  = render partial: 'shared/pictures', locals: { name_size: 20, adverts: @adverts, image_class: "col-md-4 show-user-advert-image" }
 
   - if @adverts.empty? && @user == current_user
     .center

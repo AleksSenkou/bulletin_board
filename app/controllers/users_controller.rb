@@ -14,7 +14,7 @@ class UsersController < ApplicationController
 
   def destroy
     @user.destroy
-    if current_user.admin?
+    if admin?
       flash[:notice] = 'User deleted'
     else
       flash[:notice] = 'Bye! Your account has been successfully cancelled. We hope to see you again soon.'
@@ -29,7 +29,7 @@ class UsersController < ApplicationController
 
     def correct_user
       @user = User.find(params[:id])
-      unless current_user == @user || current_user.admin?
+      unless current_user == @user || admin?
         redirect_to root_url
       end
     end

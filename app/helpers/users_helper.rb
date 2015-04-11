@@ -8,4 +8,8 @@ module UsersHelper
   def user_signup_with_provider?
     current_user.signup_with_provider
   end
+
+  def admin?
+    current_user.admin?
+  end
 end

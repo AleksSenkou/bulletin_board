@@ -15,9 +15,12 @@
   p.options Price | #{@advert.price}$
 
 - if current_user == @user
-  #show-advert-edit-btn
-    = link_to 'Edit this advert', edit_advert_path(@advert)
-- else
+  = render partial: 'adverts/show_edit_button', locals: { ad: @advert }
+
+- elsif admin?
+  = render partial: 'adverts/show_user_info', locals: { ad: @advert, u: @user }
   br
-  = link_to gravatar_for(@user, 40), user_path(@user), class:"avatar"
-  |  #{@advert.user.name}
+  = render partial: 'adverts/show_edit_button', locals: { ad: @advert }
+
+- else
+  = render partial: 'adverts/show_user_info', locals: { ad: @advert, u: @user }
