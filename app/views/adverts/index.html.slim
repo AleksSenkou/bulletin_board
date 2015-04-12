@@ -1,0 +1,13 @@
+ul#admin-show
+  - @adverts.each do |ad|
+    li
+      - ad_image = (ad.pictures.first.nil?) ? 'empty.jpg' : ad.pictures.first.image.url
+      .admin-advert-image
+        = link_to image_tag(ad_image), ad
+      = link_to 'Show', ad, id: 'show-button'
+      = link_to 'Delete', ad, id: 'delete-button', data: { confirm: "Are you sure?" }, method: :delete
+    = link_to "  #{ad.name}", ad
+    span  | #{ad.user.name}
+    hr
+
+  = will_paginate @adverts
