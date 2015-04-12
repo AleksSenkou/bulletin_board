@@ -10,6 +10,8 @@ module UsersHelper
   end
 
   def admin?
-    current_user.admin?
+    if user_signed_in? then current_user.admin?
+    else return false
+    end
   end
 end

@@ -1,8 +1,8 @@
 = render layout: 'shared/form_panel', locals: { title: 'Edit advert' , links: false} do
 
-  - if @pictures.any?
+  - if @advert.pictures.any?
     .row
-      - @pictures.each do |picture|
+      - @advert.pictures.each do |picture|
         div id="#picture_#{picture.id}"
           .col-md-2
             .edit-advert-image
