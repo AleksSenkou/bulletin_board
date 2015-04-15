@@ -1,19 +1,21 @@
 - name = -> (ad_name) { ad_name.size > name_size ? (ad_name[0, name_size] + ' ...') : ad_name }
 
 - if adverts.any?
-  .row
+  .row.center
     - adverts.each do |ad|
-      .center
+      div class="#{col_class}"
         div class="#{image_class}"
+          p = name.call(ad.name).capitalize
           - if ad.pictures.any?
             = link_to image_tag(ad.pictures.first.image.url), ad
           - else
             = link_to image_tag('empty.jpg'), ad
-          p = name.call(ad.name).capitalize
-          = link_to 'like', like_advert_path(ad), method: :put
-          = ad.get_likes.size
-          = link_to 'dislike', dislike_advert_path(ad), method: :put
-          = ad.get_dislikes.size
-          br
+        .rating
+          = link_to image_tag('like.jpg'), like_advert_path(ad), method: :put
+          span.likes_count = ad.get_likes.size
+          span.likes
+          = link_to image_tag('dislike.jpg'), dislike_advert_path(ad), method: :put
+          span.likes_count = ad.get_dislikes.size
+
   .center
     = will_paginate adverts

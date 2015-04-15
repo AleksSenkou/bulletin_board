@@ -10,20 +10,12 @@ class AdvertsController < ApplicationController
   def create
     @advert = current_user.adverts.build(adverts_params)
 
-    respond_to do |format|
-      if @advert.save
-        if params[:images]
-          params[:images].each do |image|
-            @advert.pictures.create(image: image)
-          end
-        end
-        format.html {
-          flash[:notice] = 'Advert had been sent to moderator'
-          redirect_to @advert
-        }
-      else
-        format.html { render action: 'new' }
-      end
+    if @advert.save
+      load_images
+      flash[:notice] = 'Advert had been sent to moderator'
+      redirect_to @advert
+    else
+      render action: 'new'
     end
   end
 
@@ -36,20 +28,12 @@ class AdvertsController < ApplicationController
   end
 
   def update
-    respond_to do |format|
-      if @advert.update_attributes(adverts_params)
-        if params[:images]
-          params[:images].each do |image|
-            @advert.pictures.create(image: image)
-          end
-        end
-        format.html {
-          flash[:notice] = 'Advert was successfully updated.'
-          redirect_to @advert
-        }
-      else
-        format.html { render action: 'edit' }
-      end
+    if @advert.update_attributes(adverts_params)
+      load_images
+      flash[:notice] = 'Advert was successfully updated.'
+      redirect_to @advert
+    else
+      render action: 'edit'
     end
   end
 
@@ -68,13 +52,21 @@ class AdvertsController < ApplicationController
 
   def dislike
     @advert.disliked_by current_user
-    if !@advert.vote_registered
+    if !@advert.vote_registered?
       @advert.undisliked_by current_user
     end
     redirect_to :back
   end
 
   private
+    def load_images
+      if params[:images]
+        params[:images].each do |image|
+          @advert.pictures.create(image: image)
+        end
+      end
+    end
+
     def set_advert
       @advert = Advert.find(params[:id])
     end
