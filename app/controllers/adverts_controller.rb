@@ -47,7 +47,10 @@ class AdvertsController < ApplicationController
     if !@advert.vote_registered?
       @advert.unliked_by current_user
     end
-    redirect_to :back
+    respond_to do |format|
+      format.html { redirect_to :back }
+      format.js
+    end
   end
 
   def dislike
@@ -55,7 +58,10 @@ class AdvertsController < ApplicationController
     if !@advert.vote_registered?
       @advert.undisliked_by current_user
     end
-    redirect_to :back
+    respond_to do |format|
+      format.html { redirect_to :back }
+      format.js
+    end
   end
 
   private

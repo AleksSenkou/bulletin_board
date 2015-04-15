@@ -12,10 +12,10 @@
             = link_to image_tag('empty.jpg'), ad
         .rating
           = link_to image_tag('like.jpg'), like_advert_path(ad), method: :put
-          span.likes_count = ad.get_likes.size
+          span.likes-count id="#{ad.id}-likes" = ad.get_likes.size
           span.likes
           = link_to image_tag('dislike.jpg'), dislike_advert_path(ad), method: :put
-          span.likes_count = ad.get_dislikes.size
+          span.likes-count id="#{ad.id}-dislikes" = ad.get_dislikes.size
 
   .center
     = will_paginate adverts
