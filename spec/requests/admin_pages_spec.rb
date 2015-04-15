@@ -28,7 +28,7 @@ RSpec.describe 'Admin pages', type: :request do
   describe 'Users index' do
     let(:user2) { FactoryGirl.create :user, name: '2' }
     before(:each) {
-      visit users_path
+      visit all_users_path
     }
 
     context 'content' do

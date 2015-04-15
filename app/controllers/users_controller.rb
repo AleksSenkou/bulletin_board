@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
   before_action :set_user
-  before_action :correct_user, only: [:destroy]
+  before_action :correct_user, only: :destroy
 
   def show
     @adverts = @user.adverts.paginate(page: params[:page], per_page: 6)

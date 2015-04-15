@@ -2,6 +2,8 @@ class Advert < ActiveRecord::Base
   belongs_to :user
   has_many :pictures, dependent: :destroy
 
+  acts_as_votable
+
   default_scope -> { order('created_at DESC') }
   self.inheritance_column = nil
 

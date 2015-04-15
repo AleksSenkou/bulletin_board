@@ -1,5 +1,5 @@
 class AdvertsController < ApplicationController
-  before_action :authenticate_user!, except: [:show]
+  before_action :authenticate_user!, except: :show
   before_action :set_advert, except: [:new, :create]
   before_action :correct_user, only: [:edit, :update, :destroy]
 
@@ -56,6 +56,11 @@ class AdvertsController < ApplicationController
   def destroy
     @advert.destroy
     redirect_to current_user
+  end
+
+  def upvote
+    @advert.liked_by current_user
+    redirect_to :back
   end
 
   private

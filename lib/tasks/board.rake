@@ -1,10 +1,10 @@
 require "faker"
 require "populator"
 
-USERS_COUNT = 50
+USERS_COUNT = 10
 IDENTITES_COUNT = 1
 USERS_WITH_ADVERTS = 2
-ADVETRS_COUNT = 10
+ADVETRS_COUNT = 5
 PICTURES_COUNT = 3
 
 namespace :db do

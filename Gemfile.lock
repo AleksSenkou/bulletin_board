@@ -36,6 +36,7 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
+    acts_as_votable (0.10.0)
     addressable (2.3.8)
     app_config (2.5.3)
     arel (6.0.0)
@@ -348,6 +349,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  acts_as_votable
   app_config
   better_errors
   bootstrap-sass (~> 3.3.3)

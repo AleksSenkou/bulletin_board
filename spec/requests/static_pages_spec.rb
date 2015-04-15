@@ -67,8 +67,8 @@ describe 'Static pages' do
 
       it { should have_link 'Settings' }
       it { should have_link 'Log out' }
-      it { should have_link('Users', href: users_path) }
-      it { should have_link('Adverts', href: adverts_path) }
+      it { should have_link('Users', href: all_users_path) }
+      it { should have_link('Adverts', href: all_adverts_path) }
     end
   end
 end
