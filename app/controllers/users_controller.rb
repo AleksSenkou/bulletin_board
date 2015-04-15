@@ -1,14 +1,9 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
-  before_action :admin_user, only: [:index]
+  before_action :set_user
   before_action :correct_user, only: [:destroy]
 
-  def index
-    @users = User.paginate(page: params[:page], per_page: 20)
-  end
-
   def show
-    @user = User.find(params[:id])
     @adverts = @user.adverts.paginate(page: params[:page], per_page: 6)
   end
 
@@ -23,12 +18,11 @@ class UsersController < ApplicationController
   end
 
   private
-    def admin_user
-      redirect_to root_url unless current_user.admin?
+    def set_user
+      @user = User.find(params[:id])
     end
 
     def correct_user
-      @user = User.find(params[:id])
       unless current_user == @user || admin?
         redirect_to root_url
       end

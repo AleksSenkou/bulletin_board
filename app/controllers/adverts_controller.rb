@@ -1,11 +1,7 @@
 class AdvertsController < ApplicationController
   before_action :authenticate_user!, except: [:show]
+  before_action :set_advert, except: [:new, :create]
   before_action :correct_user, only: [:edit, :update, :destroy]
-  before_action :admin_user, only: [:index]
-
-  def index
-    @adverts = Advert.paginate(page: params[:page], per_page: 20)
-  end
 
   def new
     @advert = current_user.adverts.build
@@ -32,7 +28,6 @@ class AdvertsController < ApplicationController
   end
 
   def show
-    @advert = Advert.find(params[:id])
     @user = @advert.user
     @pictures = @advert.pictures
   end
@@ -64,8 +59,11 @@ class AdvertsController < ApplicationController
   end
 
   private
-    def correct_user
+    def set_advert
       @advert = Advert.find(params[:id])
+    end
+
+    def correct_user
       unless @advert.user == current_user || admin?
         redirect_to @advert, alert: 'Access denied.'
       end
@@ -73,9 +71,5 @@ class AdvertsController < ApplicationController
 
     def adverts_params
       params.require(:advert).permit(:name, :description, :price, :type)
-    end
-
-    def admin_user
-      redirect_to root_url unless admin?
     end
 end
