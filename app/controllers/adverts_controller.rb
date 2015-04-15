@@ -58,8 +58,19 @@ class AdvertsController < ApplicationController
     redirect_to current_user
   end
 
-  def upvote
+  def like
     @advert.liked_by current_user
+    if !@advert.vote_registered?
+      @advert.unliked_by current_user
+    end
+    redirect_to :back
+  end
+
+  def dislike
+    @advert.disliked_by current_user
+    if !@advert.vote_registered
+      @advert.undisliked_by current_user
+    end
     redirect_to :back
   end
 

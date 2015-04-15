@@ -10,7 +10,10 @@
           - else
             = link_to image_tag('empty.jpg'), ad
           p = name.call(ad.name).capitalize
-          = link_to 'upvote', like_advert_path(ad), method: :put
+          = link_to 'like', like_advert_path(ad), method: :put
+          = ad.get_likes.size
+          = link_to 'dislike', dislike_advert_path(ad), method: :put
+          = ad.get_dislikes.size
           br
   .center
     = will_paginate adverts

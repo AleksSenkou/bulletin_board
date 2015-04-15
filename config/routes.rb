@@ -4,8 +4,8 @@ Rails.application.routes.draw do
 
   resources :adverts, except: [:index] do
     member do
-      put 'like', to: 'adverts#upvote'
-      put 'dislike', to: 'adverts#downvote'
+      put 'like', to: 'adverts#like'
+      put 'dislike', to: 'adverts#dislike'
     end
   end
 
