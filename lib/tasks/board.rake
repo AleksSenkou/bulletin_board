@@ -3,9 +3,12 @@ require "populator"
 
 USERS_COUNT = 10
 IDENTITES_COUNT = 1
-USERS_WITH_ADVERTS = 2
-ADVETRS_COUNT = 5
+USERS_WITH_ADVERTS = 3
+ADVETRS_COUNT_FOR_USER = 7
+ADVERTS_COUNT = USERS_WITH_ADVERTS * ADVETRS_COUNT_FOR_USER
+ADVERTS_WITH_PICTURES = ADVERTS_COUNT - 1
 PICTURES_COUNT = 3
+VOTE_ADVERTS_COUNT = ADVERTS_COUNT - 1
 
 namespace :db do
   desc 'Fill database with sample data'
@@ -14,6 +17,7 @@ namespace :db do
     make_users
     make_adverts
     make_pictures_for_adverts
+    make_vote
   end
 end
 
@@ -50,7 +54,7 @@ end
 
 def make_adverts
   User.first(USERS_WITH_ADVERTS).each do |user|
-    Advert.populate ADVETRS_COUNT do |ad|
+    Advert.populate ADVETRS_COUNT_FOR_USER do |ad|
       ad.user_id     = user.id
       ad.name        = Faker::Lorem.word
       ad.description = Faker::Lorem.sentence(16)
@@ -61,10 +65,23 @@ def make_adverts
 end
 
 def make_pictures_for_adverts
-  Advert.all.each do |ad|
+  Advert.first(ADVERTS_WITH_PICTURES).each do |ad|
     PICTURES_COUNT.times {
       image     = Faker::Avatar.image
       Picture.create(advert_id: ad.id, image: image)
     }
+  end
+end
+
+def make_vote
+  Advert.first(VOTE_ADVERTS_COUNT).each do |ad|
+    User.all.each do |u|
+      like_me = (1 == rand(2) ? true : false)
+      if like_me
+        ad.liked_by u
+      else
+        ad.disliked_by u
+      end
+    end
   end
 end
