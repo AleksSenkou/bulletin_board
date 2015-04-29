@@ -3,7 +3,7 @@ Bulletin Board
 
 ##### Board for buy, sell, exchange, rent
 
-- Gast can
+- Guest can
   * view adverts
 
 - User can
