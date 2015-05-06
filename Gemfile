@@ -37,6 +37,7 @@ gem 'bootstrap-will_paginate'
 group :development do
   gem "better_errors"
   gem 'guard-bundler'
+  gem 'guard-cucumber'
   gem 'guard-rails'
   gem 'guard-rspec'
   gem 'rails_layout'
@@ -54,6 +55,7 @@ group :development, :test do
   gem 'populator'
   gem 'faker'
   gem 'rspec-rails'
+  gem 'cucumber'
   gem 'rubocop'
 end
 
